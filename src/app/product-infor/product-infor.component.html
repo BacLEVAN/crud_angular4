@@ -1,0 +1,43 @@
+<!-- <p>
+  product-infor works!
+</p> -->
+<!-- {{products1}} -->
+<!-- <ul>
+  <li *ngFor="let item of products1">
+    {{item.id}}
+</li>
+</ul> -->
+<p *ngIf="message !== undefined" class="alert alert-success">{{message}}</p>
+<div *ngIf="product">
+  <div style="width: 30%">
+    <div>
+      <div>{{product.model}} details!</div>
+    </div>
+    <div>
+      <div>
+        <label>id: </label>{{product.id}}</div>
+      <div>
+        <label>model: </label>
+        <input [(ngModel)]="product.model" placeholder="model" />
+      </div>
+      <div>
+        <label>Manufacturer: </label>
+        <input [(ngModel)]="product.manufacturer" placeholder="manufacturer" />
+      </div>
+    </div>
+    <div>
+      <button md-button (click)="goBack()"> Back </button>
+      <button md-button (click)="updateProduct(product)"> Update </button>
+    </div>
+  </div>
+  <div>
+    <!-- <ul>
+      <li>{{products1.id}}</li>
+      <li>{{products1.model}}</li>
+      <li>{{products1.manufacturer}}</li>
+    </ul> -->
+<!-- <ul>
+  <li *ngFor="let item of products1">
+    {{item.id}}
+</li>
+</ul> -->

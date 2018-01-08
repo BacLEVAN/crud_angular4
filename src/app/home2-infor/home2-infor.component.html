@@ -1,0 +1,77 @@
+<p>
+  home2-infor works!
+</p>
+<div class="container">
+<div *ngIf="edit === undefined">  
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Image</th>
+        <th>Bio</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <th scope="row">{{oneUser?.id}}</th>
+          <td>{{oneUser?.name}}</td>
+          <td>{{oneUser?.username}}</td>
+          <td>{{oneUser?.password}}</td>
+          <td>{{oneUser?.img}}</td>
+          <td>{{oneUser?.bio}}</td>
+          <td>{{oneUser?.status}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+{{oneUser}}
+{{oneUser | json}}
+<div *ngIf="edit === 'true'">
+    <form #editUserForm="ngForm">
+        <div class="form-group">
+          <label for="exampleInputName">Name</label>
+          <input [(ngModel)]="oneUser.name" name="name" #aa="ngModel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" />
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputUsername">User Name</label>
+          <input [(ngModel)]="oneUser.username" name="username" #bb="ngModel" class="form-control" id="exampleInputUsername" placeholder="Enter username" />
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" [(ngModel)]="oneUser.password" name="password" #cc="ngModel"  class="form-control" id="exampleInputPassword1" placeholder="Password" />
+          <small id="emailHelp" class="form-text text-muted">We'll never share your password with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleSelect1">Status select</label>
+          <!-- <select [(ngModel)]="oneUser.status" name="status" class="form-control" id="exampleSelect1">
+            <option [ngValue]="1">1</option>
+           <option [ngValue]="1" [selected]="oneUser.status==1">1</option>
+            <option [ngValue]="2">2</option>
+            <option [ngValue]="3">3</option>
+            <option [ngValue]="4">4</option>
+            <option [ngValue]="5">5</option>
+          </select> -->
+          <select [(ngModel)]="oneUser.status" name="status" class="form-control" id="exampleSelect1">
+            <option *ngFor="let item of selectableItems" [ngValue]="item.inx" [selected]="oneUser.status===item.inx">{{item.inx}}</option>
+          
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleTextarea">Example textarea</label>
+          <textarea [(ngModel)] = "oneUser.bio" name="bio" #ee="ngModel"  class="form-control" id="exampleTextarea" rows="3"></textarea>
+        </div>
+        <!-- <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+          <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+        </div> -->
+        <button type="submit" class="btn btn-primary" (click)="editUser(oneUser)">Submit</button>
+      </form>
+</div>
+  <button type="button" class="btn btn-secondary" (click) = "goBack()">Back</button>
+</div>

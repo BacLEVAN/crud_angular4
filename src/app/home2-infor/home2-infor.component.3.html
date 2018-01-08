@@ -1,0 +1,58 @@
+<p>
+  home2-infor works!
+</p>
+<div class="container">
+  
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Image</th>
+        <th>Bio</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr> -->
+      <tr>
+          <th scope="row">{{oneUser?.id}}</th>
+          <td>{{oneUser?.name}}</td>
+          <td>{{oneUser?.username}}</td>
+          <td>{{oneUser?.password}}</td>
+          <td>{{oneUser?.img}}</td>
+          <td>{{oneUser?.bio}}</td>
+          <td>{{oneUser?.status}}</td>
+        </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-secondary" (click) = "goBack()">Back</button>
+</div>

@@ -1,0 +1,5 @@
+[
+  {"id": 1, "model": "Core Java", "manufacturer" : "abc1"},
+  {"id": 2, "model": "Angular 2", "manufacturer" :"abc2"},
+  {"id": 3, "model": "Hibernate", "manufacturer" :  "abc3"}
+] 

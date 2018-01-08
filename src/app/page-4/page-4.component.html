@@ -1,0 +1,46 @@
+
+<div class="container">
+    <p>
+        page-4 works!
+      </p>
+    <form enctype="multipart/form-data">
+
+      <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="text" [(ngModel)]="model_page_4.email" name="email" required #email1="ngModel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <div [hidden]="email1.valid || email1.pristine" class="alert alert-danger">
+          Email is required
+        </div>
+      </div>
+      <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <!-- <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp"> -->
+          <input (change)="fileChange($event)"  type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+          <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+      </div>
+      <button type="submit" class="btn btn-primary" (click) = "upload(model_page_4)" >Submit</button>
+    </form>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th># id</th>
+            <th>Email</th>
+            <th>image</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let page_4_data of page_4_datas">
+            <th scope="row">{{page_4_data.id}}</th>
+            <td>{{page_4_data.email}}</td>
+            <td><img src="{{path_image_page_4}}{{page_4_data.image}}" alt="{{page_4_data.email}}" width="40" height="30" /></td>
+            <td>{{page_4_data.status}}</td>
+            <td><button class="btn btn-defaul">Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+  </div>

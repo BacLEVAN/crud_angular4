@@ -1,0 +1,142 @@
+<!-- <p>
+  product works!
+</p> -->
+
+<h2>Bikes</h2>
+
+<!-- <table class="table table-inverse">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table> -->
+
+<p *ngIf="message !== undefined" class="alert alert-success">{{message}}</p>
+<form #loginForm="ngForm">
+<div class="row">
+  <div class="col-md-12">
+    <!-- <input [(ngModel)]="newProduct.model" placeholder="Model" name="model"  class="form-control" required minlength="2" emailDomain #name="ngModel"/> -->
+    <input [(ngModel)]="newProduct.model" placeholder="Model" name="model"  class="form-control" required minlength="2" #name="ngModel"/>
+<div *ngIf="name.invalid && (name.dirty || name.touched)"
+    class="alert alert-danger">
+ <div *ngIf="name.errors.required">
+   Name is required.
+ </div>
+ <div *ngIf="name.errors.minlength">
+   Name must be at least 2 characters long.
+ </div>
+ <!-- <div *ngIf="name.errors.emailDomain">
+   Name cannot be Bob.
+ </div> -->
+
+</div>
+</div>
+<div class="col-md-12">
+    <input [(ngModel)]="newProduct.manufacturer" placeholder="Manufacturer" name="manufacturer" class="form-control" required forbiddenName="bob" minlength="4" #baclv="ngModel"/>
+  {{baclv.errors | json}}
+  <!-- <li *ngFor="let obj of baclv">{{obj | json}}</li> -->
+
+<div *ngIf="baclv.invalid && (baclv.dirty || baclv.touched)"
+    class="alert alert-danger">
+
+  <div *ngIf="baclv.errors.required">
+    Manufacturer is required.
+  </div>
+
+  <!-- <div *ngIf="baclv.errors.email">
+    Manufacturer is email.
+   </div> -->
+
+   <div *ngIf="baclv.errors.minlength">
+    Name must be at least 4 characters long.
+  </div>
+
+   <div *ngIf="baclv.errors.forbiddenName">
+      Name cannot be Bob.
+    </div>
+</div>
+  
+  </div>
+  
+  <div class="col-md-12">
+      <button [disabled]="loginForm.form.invalid" (click)="createProduct(newProduct)" class="btn btn-primary mt-10">Create Bike</button>
+  </div>
+
+  <!-- <div>
+    <div *ngFor="let product of products" (click)="showInfo(product)">
+      <span>
+        {{product.model}}
+      </span>
+      |
+      <span>
+        {{product.manufacturer}}
+      </span>
+      <span>
+        <button type="button" class="btn btn-danger" (click)="deleteProduct(product); $event.stopPropagation()">Delete</button>
+      </span>
+    </div>
+  </div> -->
+
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-inverse">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Id</th>
+            <th>Model</th>
+            <th>Manufacturer</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products | paginate: { itemsPerPage: 5, currentPage: p }; let i = index" (click)="showInfo(product)">
+          <!-- <tr *ngFor="let product of products" (click)="showInfo(product)"> -->
+            <!-- <th scope="row">0</th> -->
+            <th scope="row">index {{i}}</th>
+            <td>{{product.id}}</td>
+            <td>{{product.model}}</td>
+            <td>{{product.manufacturer}}</td>
+            <td><button type="button" class="btn btn-danger" (click)="deleteProduct(product); $event.stopPropagation()">Delete</button></td>
+          </tr>
+        </tbody>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </table>
+  </div>
+</div>
+</form>
+
+<!-- <div>
+  <ul>
+      <li *ngFor="let product of products">
+        <span class="badge">{{ product.id }}</span><br>
+        {{ product.model }} <br>
+        {{ product.manufacturer }} <br>
+      </li>
+  </ul>
+</div> -->

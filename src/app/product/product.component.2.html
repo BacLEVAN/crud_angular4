@@ -1,0 +1,84 @@
+<!-- <p>
+  product works!
+</p> -->
+<div class="container">
+<h2>Bikes</h2>
+
+<table class="table table-inverse">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+
+<p class="alert alert-success">{{message}}</p>
+<form>
+<div class="row">
+  <div class="col-md-12">
+    <input [(ngModel)]="newProduct.model" placeholder="Model" name="model"  class="form-control" />
+  </div>
+  <div class="col-md-12">
+    <input [(ngModel)]="newProduct.manufacturer" placeholder="Manufacturer" name="manufacturer" class="form-control" />
+  </div>
+  
+  <div class="col-md-12">
+      <button (click)="createProduct(newProduct)" class="btn btn-primary">Create Bike</button>
+  </div>
+  
+
+  <br/>
+  <br/>
+</div>
+  <div class="row">
+    <div *ngFor="let product of products" (click)="showInfo(product)">
+      <span>
+        {{product.model}}
+      </span>
+      |
+      <span>
+        {{product.manufacturer}}
+      </span>
+      <span>
+        <button type="button" class="btn btn-danger" (click)="deleteProduct(product); $event.stopPropagation()">Delete</button>
+      </span>
+    </div>
+  </div>
+</form>
+
+
+</div>
+
+
+<!-- <div>
+  <ul>
+      <li *ngFor="let product of products">
+        <span class="badge">{{ product.id }}</span><br>
+        {{ product.model }} <br>
+        {{ product.manufacturer }} <br>
+      </li>
+  </ul>
+</div> -->

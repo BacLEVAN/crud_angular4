@@ -1,0 +1,73 @@
+
+<p>
+  home2 works!
+  show User infor!
+</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th>Image</th>
+      <th>Bio</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let user of users" >
+      <td>{{user.id}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.password}}</td>
+      <td>{{user.img}}</td>
+      <!-- <td>{{user.img}} <img src= "../{{pathUrl}}Angular_5.jpg" width="50" height="50" class="img-circle" alt="HelPic" /></td> -->
+      <td>{{user?.bio}}</td>
+      <td>{{user.status}}</td>
+      <td>
+        <button type="button" class="btn"><a routerLink="/user-infor/{{user.id}}">Show User</a></button>
+        <button type="button" class="btn btn-primary" (click)="editUser(user)">Edit User</button>
+        <button type="button" class="btn btn-warning" (click)="deleteUser(user)">Delete User</button>
+      </td>
+    </tr>
+  </tbody>
+  </table>
+
+  <form #userForm="ngForm" enctype="multipart/form-data">
+    <div class="col-md-6">
+      <label> Name
+        <input [(ngModel)]="newUser.name" placeholder="name" name="name"  class="form-control" required #aaa="ngModel"/>
+      </label>
+    </div>
+    <div class="col-md-6">
+    <label> User name
+    <input [(ngModel)]="newUser.username" placeholder="user name" name="username"  class="form-control" required #bbb="ngModel"/>
+    </label>
+  </div>
+  <div class="col-md-6">
+    <label> Password
+    <input [(ngModel)]="newUser.password" placeholder="password" name="password"  class="form-control" required #ccc="ngModel"/>
+    </label>
+  </div>
+    <!-- <input [(ngModel)]="newUser.img" placeholder="img" name="img"  class="form-control" required #ddd="ngModel"/> -->
+    <div class="col-md-6">
+    <label> Upload file
+    <input [(ngModel)]="newUser.img" type="file" placeholder="Upload file..." name="img"  class="form-control" #ddd="ngModel"/>
+    </label>
+  </div>
+  <div class="col-md-6">
+    <label>Bio
+    <input [(ngModel)]="newUser.bio" placeholder="bio" name="bio"  class="form-control" required #eee="ngModel"/>
+    </label>
+  </div>
+  <div class="col-md-6">
+    <label> Status
+    <input [(ngModel)]="newUser.status" placeholder="status" name="status"  class="form-control" required #fff="ngModel"/>
+    </label>
+  </div>
+    <button type="button" class="btn btn-primary" (click)="saveUser(newUser)">Create User</button>
+  </form>
+
