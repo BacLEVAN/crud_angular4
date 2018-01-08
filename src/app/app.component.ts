@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Angular 4 --> 5';
 
+  /*
   // pagination
   // sorting
   key: string = 'name';
@@ -21,4 +22,5 @@ export class AppComponent {
 
   //initializing p to one
   p: number = 1;
+  */
 }

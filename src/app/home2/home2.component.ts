@@ -10,12 +10,11 @@ import { Home2 } from './home2';
 export class Home2Component implements OnInit {
 
   users: any;
-
   newUser: Home2;
-
   oneUser = new Home2();
   errorMessage: String;
 
+  p: number = 1;
   pathUrl = "assets/user/";
 
   constructor(private home2service: Home2Service) { }
@@ -30,7 +29,7 @@ export class Home2Component implements OnInit {
     return this.home2service.getService().then(users1 => this.users = users1);
   }
 
-  // saveUser (user: Home2) 
+  // saveUser (user: Home2)
   saveUser(user1: Home2): void {
     this.home2service.saveUser(user1)
       .then(res => {

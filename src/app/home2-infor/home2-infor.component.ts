@@ -12,10 +12,12 @@ import { Location } from '@angular/common';
 })
 export class Home2InforComponent implements OnInit {
 
-  oneUser : Home2;
-  id : number;
-  edit : boolean = false;
-  selectableItems : any = [{inx: 1}, {inx: 2}, {inx: 3}, {inx:4}, {inx:5}, {inx:6}, {inx:7}];
+  oneUser: Home2;
+  id: number;
+  edit: boolean = false;
+  selectableItems: any = [{inx: 1}, {inx: 2}, {inx: 3}, {inx:4}, {inx:5}, {inx:6}, {inx:7}];
+  p: number = 1;
+  
   constructor(
     private home2_infor_service : Home2InforService,
     private route: ActivatedRoute,

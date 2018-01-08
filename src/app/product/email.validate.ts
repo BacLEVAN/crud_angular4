@@ -1,3 +1,4 @@
+/*
 import {
     NgModule,
     Component,
@@ -29,7 +30,7 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 //   }
 // }
 
-function emailDomainValidator(control: FormControl) {
+function emailDomainValidator1(control: FormControl) {
   let email = control.value;
   if (email && email.indexOf("@") != -1) {
     let [_, domain] = email.split("@");
@@ -49,10 +50,11 @@ function emailDomainValidator(control: FormControl) {
   providers: [
     {
       provide: NG_VALIDATORS,
-      useValue: emailDomainValidator,
+      useValue: emailDomainValidator1,
       multi: true
     }
   ]
 })
 
 export class EmailDomainValidator {}
+*/

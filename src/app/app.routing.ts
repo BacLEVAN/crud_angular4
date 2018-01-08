@@ -16,8 +16,8 @@ import { LoginComponent } from './login/login.component';
     imports: [
     RouterModule.forRoot([
          { path: 'user', component: UserComponent },
-         { path: 'about', component: AboutComponent },
-         { path: 'product', component: ProductComponent, canActivate: [AuthGuard] },
+         { path: 'about', component: AboutComponent, canActivate: [AuthGuard] },
+         { path: 'product', component: ProductComponent },
          { path: 'information/:id', component: ProductInforComponent },
          { path: 'home', component: HomeComponent },
          { path: 'home2', component: Home2Component },

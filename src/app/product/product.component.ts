@@ -26,7 +26,8 @@ export class ProductComponent implements OnInit {
   promiseBooks: Promise<Product[]>;
   message: string;
   // form: FormGroup;
-  heroForm : any;
+  heroForm: any;
+  p: number = 1;
 
   constructor(
     private router: Router,
